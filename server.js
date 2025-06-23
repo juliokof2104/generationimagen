@@ -1,5 +1,4 @@
 import express from "express";
-import cors from "cors";
 import path from "path";
 import fetch from "node-fetch";
 import { fileURLToPath } from "url";
@@ -13,19 +12,6 @@ const __dirname = dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-// CORS explícito y completo
-const corsOptions = {
-  origin: "https://generationimagen.onrender.com",
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  optionsSuccessStatus: 200
-};
-
-app.use(cors(corsOptions));
-
-// Importante: manejar preflight (OPTIONS) manualmente
-app.options("*", cors(corsOptions));
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
