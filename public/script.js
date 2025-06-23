@@ -16,10 +16,10 @@ async function generarImagen() {
 
     if (data.image) {
       const imagen = document.createElement("img");
-      imagen.src = data.image; // base64
+      imagen.src = data.image;
       imagen.alt = "Imagen generada";
       imagen.style.maxWidth = "100%";
-      contenedor.innerHTML = "";
+      contenedor.innerHTML = ""; // limpiar mensaje anterior
       contenedor.appendChild(imagen);
     } else {
       contenedor.innerHTML = "⚠️ No se generó imagen.";
@@ -31,3 +31,4 @@ async function generarImagen() {
     console.error("Error al generar imagen:", error);
   }
 }
+
