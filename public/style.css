@@ -68,13 +68,6 @@ button:hover {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-#resultado img {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-  margin-top: 15px;
-}
-
 /* Spinner (si se implementa) */
 .spinner {
   border: 4px solid #f1f1f1;
@@ -97,6 +90,7 @@ button:hover {
   100% { transform: rotate(360deg); }
 }
 
+/* Galería */
 #galeria {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -115,22 +109,7 @@ button:hover {
   transform: scale(1.05);
 }
 
-a.descargar {
-  display: inline-block;
-  margin-top: 10px;
-  text-decoration: none;
-  background: #0ef;
-  color: #111;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-a.descargar:hover {
-  background: #08d;
-}
-
+/* Imagen generada principal */
 .contenedor-imagen {
   position: relative;
   display: inline-block;
@@ -153,7 +132,7 @@ a.descargar:hover {
   color: white;
   font-size: 1.2rem;
   padding: 8px 10px;
-  border-radius: 4px; /* esquinas suaves */
+  border-radius: 4px;
   transition: background 0.3s ease;
   z-index: 1;
 }
@@ -161,4 +140,3 @@ a.descargar:hover {
 .descargar-overlay:hover {
   background: rgba(0, 0, 0, 0.7);
 }
-
