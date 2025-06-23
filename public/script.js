@@ -3,11 +3,10 @@
 const imagenesGeneradas = [];
 
 async function generarImagen() {
-  const prompt = document.getElementById("prompt").value;
-  const contenedor = document.getElementById("resultado");
-  const galeria = document.getElementById("galeria");
+const contenedor = document.getElementById("resultado");
+const galeria = document.getElementById("galeria");
   
-  const prompt = document.getElementById("prompt").value.trim();
+const prompt = document.getElementById("prompt").value.trim();
 if (!prompt) {
   alert("Por favor, escribí una descripción antes de generar.");
   return;
