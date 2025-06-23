@@ -152,8 +152,8 @@ a.descargar:hover {
   background: rgba(0, 0, 0, 0.4);
   color: white;
   font-size: 1.2rem;
-  padding: 6px 10px;
-  border-radius: 2px; /* esquinas suaves */
+  padding: 8px 10px;
+  border-radius: 4px; /* esquinas suaves */
   transition: background 0.3s ease;
   z-index: 1;
 }
