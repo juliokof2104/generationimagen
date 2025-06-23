@@ -14,16 +14,22 @@ const __dirname = dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// 🟢 CORS debe ir primero
-app.use(cors({
+// CORS explícito y completo
+const corsOptions = {
   origin: "https://generationimagen.onrender.com",
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  optionsSuccessStatus: 200
+};
 
-// 🟢 JSON y archivos estáticos
+app.use(cors(corsOptions));
+
+// Importante: manejar preflight (OPTIONS) manualmente
+app.options("*", cors(corsOptions));
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+
 
 const STABILITY_API_KEY = process.env.STABILITY_API_KEY;
 
