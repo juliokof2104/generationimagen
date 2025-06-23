@@ -6,7 +6,6 @@ import { fileURLToPath } from "url";
 import { dirname } from "path";
 import dotenv from "dotenv";
 
-
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -15,15 +14,20 @@ const __dirname = dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, "public")));
-
-app.use(express.json());
+// 🟢 CORS debe ir primero
 app.use(cors({
-  origin: "https://generationimagen.onrender.com"
+  origin: "https://generationimagen.onrender.com",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
+// 🟢 JSON y archivos estáticos
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
 
 const STABILITY_API_KEY = process.env.STABILITY_API_KEY;
 
+// Ruta principal de generación
 app.post("/api/generar", async (req, res) => {
   const prompt = req.body.prompt;
 
@@ -62,7 +66,7 @@ app.post("/api/generar", async (req, res) => {
   }
 });
 
-// (opcional) para consultar tus motores disponibles
+// Ruta opcional para listar modelos
 app.get("/api/engines", async (req, res) => {
   try {
     const response = await fetch("https://api.stability.ai/v1/engines/list", {
@@ -81,3 +85,4 @@ app.get("/api/engines", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Servidor escuchando en http://localhost:${PORT}`);
 });
+
