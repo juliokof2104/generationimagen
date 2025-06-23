@@ -5,6 +5,7 @@ import fetch from "node-fetch";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
@@ -17,6 +18,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 app.use(express.json());
+app.use(cors({
+  origin: "https://generationimagen.onrender.com"
+}));
 
 const STABILITY_API_KEY = process.env.STABILITY_API_KEY;
 
