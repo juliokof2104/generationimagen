@@ -151,10 +151,11 @@ a.descargar:hover {
   text-decoration: none;
   background: rgba(0, 0, 0, 0.4);
   color: white;
-  font-size: 1.5rem;
-  padding: 6px;
-  border-radius: 50%;
+  font-size: 1.2rem;
+  padding: 6px 10px;
+  border-radius: 6px; /* esquinas suaves */
   transition: background 0.3s ease;
+  z-index: 1;
 }
 
 .descargar-overlay:hover {
