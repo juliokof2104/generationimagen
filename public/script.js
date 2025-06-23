@@ -6,6 +6,12 @@ async function generarImagen() {
   const prompt = document.getElementById("prompt").value;
   const contenedor = document.getElementById("resultado");
   const galeria = document.getElementById("galeria");
+  
+  const prompt = document.getElementById("prompt").value.trim();
+if (!prompt) {
+  alert("Por favor, escribí una descripción antes de generar.");
+  return;
+}
 
   contenedor.innerHTML = "⌛ Generando imagen...";
 
