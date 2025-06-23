@@ -4,7 +4,8 @@ async function generarImagen() {
   contenedor.innerHTML = "⌛ Generando imagen...";
 
   try {
-    const response = await fetch("https://ghibli-api.onrender.com/api/generar", {
+   const response = await fetch("https://ghibli-api.onrender.com/api/generar", {
+    const response = await fetch("/api/generar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
