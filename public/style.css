@@ -131,3 +131,33 @@ a.descargar:hover {
   background: #08d;
 }
 
+.contenedor-imagen {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.imagen-principal {
+  display: block;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.descargar-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: background 0.3s ease;
+}
+
+.descargar-overlay:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
