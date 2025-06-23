@@ -96,3 +96,38 @@ button:hover {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+#galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+#galeria img.miniatura {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+  transition: transform 0.2s;
+}
+
+#galeria img.miniatura:hover {
+  transform: scale(1.05);
+}
+
+a.descargar {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  background: #0ef;
+  color: #111;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+a.descargar:hover {
+  background: #08d;
+}
+
