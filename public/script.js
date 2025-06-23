@@ -1,4 +1,4 @@
-// script.js mejorado con galeria y descarga
+// script.js mejorado con galería y descarga sutil sobre la imagen
 
 const imagenesGeneradas = [];
 
@@ -22,21 +22,26 @@ async function generarImagen() {
 
     if (data.image) {
       // Mostrar imagen principal
+      const contenedorImagen = document.createElement("div");
+      contenedorImagen.className = "contenedor-imagen";
+
       const imagen = document.createElement("img");
       imagen.src = data.image;
       imagen.alt = "Imagen generada";
-      imagen.style.maxWidth = "100%";
+      imagen.className = "imagen-principal";
 
-      // Botón de descarga
+      // Botón de descarga sobre la imagen
       const botonDescarga = document.createElement("a");
       botonDescarga.href = data.image;
       botonDescarga.download = "imagen-ia.png";
-      botonDescarga.innerText = "💾 Descargar imagen";
-      botonDescarga.className = "descargar";
+      botonDescarga.innerHTML = "⬇️";
+      botonDescarga.className = "descargar-overlay";
+
+      contenedorImagen.appendChild(imagen);
+      contenedorImagen.appendChild(botonDescarga);
 
       contenedor.innerHTML = "";
-      contenedor.appendChild(imagen);
-      contenedor.appendChild(botonDescarga);
+      contenedor.appendChild(contenedorImagen);
 
       // Agregar a la galeria
       imagenesGeneradas.unshift(data.image); // nueva primero
@@ -59,4 +64,3 @@ async function generarImagen() {
     console.error("Error al generar imagen:", error);
   }
 }
-
