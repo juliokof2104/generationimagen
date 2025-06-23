@@ -1,24 +1,25 @@
 async function generarImagen() {
   const prompt = document.getElementById("prompt").value;
   const contenedor = document.getElementById("resultado");
- 
+  contenedor.innerHTML = "⌛ Generando imagen...";
 
-fetch("https://ghibli-api.onrender.com/api/generar", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({ prompt })
-});
+  try {
+    const response = await fetch("https://ghibli-api.onrender.com/api/generar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ prompt })
+    });
 
     const data = await response.json();
 
-     if (data.image) {
+    if (data.image) {
       const imagen = document.createElement("img");
-      imagen.src = data.image; // Base64 inline image
+      imagen.src = data.image; // base64
       imagen.alt = "Imagen generada";
       imagen.style.maxWidth = "100%";
-      contenedor.innerHTML = ""; // Limpiar mensaje anterior
+      contenedor.innerHTML = "";
       contenedor.appendChild(imagen);
     } else {
       contenedor.innerHTML = "⚠️ No se generó imagen.";
@@ -29,5 +30,4 @@ fetch("https://ghibli-api.onrender.com/api/generar", {
     contenedor.innerHTML = "❌ Hubo un error.";
     console.error("Error al generar imagen:", error);
   }
-
 }
