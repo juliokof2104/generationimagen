@@ -153,7 +153,7 @@ a.descargar:hover {
   color: white;
   font-size: 1.2rem;
   padding: 6px 10px;
-  border-radius: 6px; /* esquinas suaves */
+  border-radius: 2px; /* esquinas suaves */
   transition: background 0.3s ease;
   z-index: 1;
 }
